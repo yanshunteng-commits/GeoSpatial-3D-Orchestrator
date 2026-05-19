@@ -16,13 +16,14 @@ class ThreeJsAgent:
     def generate_code(self, task_description, gis_context):
         print("⌨️  [Three.js Agent] 收到空间数据上下文，开始构建 3D 渲染逻辑...")
         
-        system_prompt = \"\"\"
+        system_prompt = """
         你是一个资深的 WebGL 和 GIS 可视化专家。
         请根据用户的空间可视化需求，直接输出完整的、可以直接在浏览器运行的 HTML 代码。
         必须通过 CDN 引入 Three.js 和 OrbitControls。
         场景必须包含：基础灯光、深色科技感背景、星空粒子系统，以及贴合需求的 3D 几何体。
         只输出 HTML 代码，用 ```html 和 ``` 包裹。
-        \"\"\"
+        """
+    
         
         try:
             response = self.client.chat.completions.create(
